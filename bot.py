@@ -20,9 +20,8 @@ def indicar(update, context):
 def processa_indicacao(update, context):
     # Obtém as informações do indicador
     informacoes = update.message.text.split(',')
-    nome = informacoes[0].strip()
-    email = informacoes[1].strip()
-    telefone = informacoes[2].strip()
+    Login = informacoes[0].strip()
+    telefone = informacoes[1].strip()
 
     # Envia as informações do indicador para o servidor
     # Código para envio ao servidor aqui
@@ -39,7 +38,7 @@ def rank(update, context):
     # Cria a mensagem com o ranking
     mensagem = 'Ranking:\n\n'
     for i, indicador in enumerate(indicadores):
-        mensagem += f'{i+1}. {indicador["nome"]} - {indicador["pontos"]} pontos\n'
+        mensagem += f'{i+1}. {indicador["Login"]} - {indicador["pontos"]} pontos\n'
 
     # Envia a mensagem com o ranking para o usuário
     context.bot.send_message(chat_id=update.effective_chat.id, text=mensagem)
